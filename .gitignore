@@ -67,3 +67,13 @@ env/
 ENV/
 .conda/
 conda-env/
+
+# Upstream benchmarks/frameworks (each keeps its own .git;
+# reproduce via scripts/setup.sh)
+third_party/
+
+# Experiment outputs (keep the dir, ignore heavy artifacts)
+results/**
+!results/.gitkeep
+logs/
+*.log

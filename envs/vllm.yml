@@ -1,0 +1,15 @@
+# Model-serving stack: vLLM serving open-weight backbones over an
+# OpenAI-compatible endpoint that every benchmark calls as a client.
+# Kept separate so its CUDA/torch pins don't fight the benchmark envs.
+# Python 3.12 (vLLM recommends 3.12; supports 3.10-3.12).
+#
+#   conda env create -f envs/vllm.yml && conda activate sde-vllm
+#   bash serving/serve.sh qwen3-vl-32b
+name: sde-vllm
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - vllm

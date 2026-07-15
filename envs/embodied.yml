@@ -1,0 +1,16 @@
+# Embodied stack: SafeAgentBench on AI2-THOR (Unity/OpenGL).
+# Python 3.10 (ai2thor==5.0.0 supports 3.9-3.11; avoid 3.12).
+# Renders headlessly on the GPU via CloudRendering (EGL/Vulkan) — NO X server,
+# NO sudo. See REPLICATION.md for the platform=CloudRendering edit.
+#
+#   conda env create -f envs/embodied.yml && conda activate sde-embodied
+#   cd third_party/embodied/safeagentbench && pip install -r requirements.txt
+name: sde-embodied
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - ai2thor==5.0.0
+      - openai      # points at the local vLLM endpoint (OPENAI_BASE_URL)

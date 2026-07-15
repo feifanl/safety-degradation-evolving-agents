@@ -1,0 +1,22 @@
+# Web stack: WebArena, AWM, ReasoningBank, BrowserART, Agent-SafetyBench.
+# Playwright/Chromium + BrowserGym family. Python pinned to 3.10 (WebArena CI
+# pins 3.10.9; the web stack breaks above 3.11).
+#
+#   conda env create -f envs/web.yml && conda activate sde-web
+#   # then, per repo, from its directory:
+#   #   pip install -r requirements.txt && pip install -e .
+#   #   playwright install
+#   #   python -m nltk.downloader punkt stopwords
+name: sde-web
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - nodejs      # playwright browser driver
+  - pip:
+      - playwright
+      - browsergym
+      - browsergym-webarena
+      - nltk
+      - openai      # points at the local vLLM endpoint (OPENAI_BASE_URL)
